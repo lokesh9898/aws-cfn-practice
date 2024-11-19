@@ -1,4 +1,4 @@
-template-file-path: ./ VPC-Creation.yaml
+template-file-path: ./VPC-Creation.yaml
 Parameters:
   VpcCIDR:
     Type: String
