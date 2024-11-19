@@ -1,0 +1,46 @@
+template-file-path: ./vpc/VPC-Creation.yaml
+Parameters:
+  VpcCIDR:
+    Type: String
+    Default: "10.0.0.0/16"
+    Description: "CIDR block for the VPC"
+
+  PublicSubnet1CIDR:
+    Type: String
+    Default: "10.0.1.0/24"
+    Description: "CIDR block for the first public subnet"
+
+  PublicSubnet2CIDR:
+    Type: String
+    Default: "10.0.2.0/24"
+    Description: "CIDR block for the second public subnet"
+
+  PublicSubnet3CIDR:
+    Type: String
+    Default: "10.0.5.0/24"
+    Description: "CIDR block for the third public subnet"
+
+  PrivateSubnet1CIDR:
+    Type: String
+    Default: "10.0.3.0/24"
+    Description: "CIDR block for the first private subnet"
+
+  PrivateSubnet2CIDR:
+    Type: String
+    Default: "10.0.4.0/24"
+    Description: "CIDR block for the second private subnet"
+
+  AvailabilityZone1:
+    Type: String
+    Default: "us-east-1a"
+    Description: "First Availability Zone"
+
+  AvailabilityZone2:
+    Type: String
+    Default: "us-east-1b"
+    Description: "Second Availability Zone"
+
+  AvailabilityZone3:
+    Type: String
+    Default: "us-east-1c"
+    Description: "Third Availability Zone"
