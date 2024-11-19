@@ -16,6 +16,12 @@ Parameters:
     Type: String
     Default: arn:aws:kms:eu-north-1:423623834254:alias/aws/s3
 
+  ExistingSNSTopicArn:
+    Type: String
+    Description: "The ARN of the existing SNS topic"
+    Default: arn:aws:sns:eu-north-1:423623834254:MyDynamicTopic
+
+
 
 Resources:
 
@@ -74,8 +80,14 @@ Resources:
         Rules:
           - Id: DeleteOldVersions
             Status: Enabled
-            NoncurrentVersionExpirationInDays: 30
-            ExpirationInDays: 365
+            NoncurrentVersionExpirationInDays: 5
+            ExpirationInDays: 20
+
+      ## Event Notification 
+      NotificationConfiguration:
+        TopicConfigurations:
+          - Event: s3:ObjectCreated:*
+            Topic: !Ref ExistingSNSTopicArn
 
       Tags:
         - Key: Environment
@@ -97,3 +109,7 @@ Outputs:
   LoggingBucketName:
     Value: !Ref LoggingBucket
     Description: The name of the destination logging bucket.
+
+  UsedSNSTopicArn:
+    Value: !Ref ExistingSNSTopicArn
+    Description: The ARN of the SNS topic used for notifications
