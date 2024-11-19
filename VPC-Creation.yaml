@@ -115,7 +115,7 @@ Resources:
           Value: "PublicSubnet2"
 
     # Public Subnet 3
-    PublicSubnet3:
+  PublicSubnet3:
     Type: "AWS::EC2::Subnet"
     Properties:
       VpcId: !Ref VPC
