@@ -1,7 +1,6 @@
 AWSTemplateFormatVersion: 2010-09-09
 Description: S3 Bucket with Inventory and Analytics Configurations
 
-
 Parameters:
   Bucketname:
     Type: String
@@ -17,6 +16,13 @@ Resources:
     DeletionPolicy: Retain
     Properties:
       BucketName: !Ref Bucketname
+      
+      #PubliAccess Configuration
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        IgnorePublicAcls: true
+        BlockPublicPolicy: true
+        RestrictPublicBuckets: true
       
       ### Enable Versioning
       VersioningConfiguration:
@@ -41,3 +47,6 @@ Outputs:
   S3BucketName:
     Value: !Ref S3Bucket
     Description: Name of the S3 bucket
+  KMSKeyArn:
+    Value: !GetAtt MyKMSKeyArn.Arn
+    Description: ARN of the KMS Key  
