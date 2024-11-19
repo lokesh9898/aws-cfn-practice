@@ -114,6 +114,18 @@ Resources:
         - Key: Name
           Value: "PublicSubnet2"
 
+    # Public Subnet 3
+    PublicSubnet2:
+    Type: "AWS::EC2::Subnet"
+    Properties:
+      VpcId: !Ref VPC
+      CidrBlock: !Ref PublicSubnet3CIDR
+      AvailabilityZone: !Ref AvailabilityZone3
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Name
+          Value: "PublicSubnet3"
+
   # Associate Subnet 1 with Route Table
   SubnetRouteTableAssociation1:
     Type: "AWS::EC2::SubnetRouteTableAssociation"
@@ -126,6 +138,13 @@ Resources:
     Type: "AWS::EC2::SubnetRouteTableAssociation"
     Properties:
       SubnetId: !Ref PublicSubnet2
+      RouteTableId: !Ref PublicRouteTable
+
+  # Associate Subnet 2 with Route Table
+  SubnetRouteTableAssociation3:
+    Type: "AWS::EC2::SubnetRouteTableAssociation"
+    Properties:
+      SubnetId: !Ref PublicSubnet3
       RouteTableId: !Ref PublicRouteTable
   
   # Private Subnet 1
