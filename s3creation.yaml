@@ -32,6 +32,14 @@ Resources:
             NoncurrentVersionExpirationInDays: 5
             ExpirationInDays: 35
 
+      Tags:
+        - Key: Environment
+          Value: Dev
+        - Key: Project
+          Value: MyProject
+        - Key: Owner
+          Value: TeamB
+
   S3Bucket:
     Type: 'AWS::S3::Bucket'
     DeletionPolicy: Retain
@@ -68,6 +76,14 @@ Resources:
             Status: Enabled
             NoncurrentVersionExpirationInDays: 30
             ExpirationInDays: 365
+
+      Tags:
+        - Key: Environment
+          Value: Production
+        - Key: Project
+          Value: MyProject
+        - Key: Owner
+          Value: TeamA
 
 Outputs:
   S3BucketName:
