@@ -1,7 +1,7 @@
 name: Commit request Workflow
 
 on:
-  - commit
+  - push
 
 jobs:
   cloudformation-linter:
