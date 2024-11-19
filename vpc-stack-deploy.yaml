@@ -1,0 +1,10 @@
+template-file-path: vpc-template.yaml
+parameters:
+  PrivateSubnet1CIDR: 10.0.3.0/24
+  AvailabilityZone1: us-east-1a
+  AvailabilityZone2: us-east-1b
+  PublicSubnet2CIDR: 10.0.2.0/24
+  VpcCIDR: 10.0.0.0/16
+  PrivateSubnet2CIDR: 10.0.4.0/24
+  PublicSubnet1CIDR: 10.0.1.0/24
+tags: {}
